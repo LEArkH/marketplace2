@@ -45,6 +45,11 @@ public class ClientController {
         return this.clientServices.patchClient(id, patchClientDTO);
     }
 
+    @PatchMapping({"/clients/update/current"})
+    public ResponseEntity<Object> patchClientCurrent(Authentication authentication, @RequestBody PatchClientDTO patchClientDTO) {
+        return this.clientServices.patchClientCurrent(authentication, patchClientDTO);
+    }
+
     @DeleteMapping({"/clients/delete/{id}"})
     public ResponseEntity<Object> deleteClient(@PathVariable("id") Long id) {
         return this.clientServices.deleteClient(id);

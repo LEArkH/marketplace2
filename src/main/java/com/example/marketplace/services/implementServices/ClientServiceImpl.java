@@ -99,8 +99,39 @@ public class ClientServiceImpl implements ClientServices {
             }
 
             this.clientRepository.save(clienteActualizar);
-            return new ResponseEntity<>("Cliente actualizado", HttpStatus.CREATED);
         }
+        return new ResponseEntity<>("Cliente actualizado", HttpStatus.CREATED);
+    }
+
+    @Override
+    public ResponseEntity<Object> patchClientCurrent(Authentication authentication, PatchClientDTO patchClientDTO) {
+        Client clienteActualizar = clientRepository.findByEmail(authentication.getName());
+        if (clienteActualizar == null) {
+            return new ResponseEntity<>("Cliente no encontrado", HttpStatus.FORBIDDEN);
+        } else {
+            if (patchClientDTO.getFirstName() != null) {
+                clienteActualizar.setFirstName(patchClientDTO.getFirstName());
+            }
+
+            if (patchClientDTO.getLastName() != null) {
+                clienteActualizar.setLastName(patchClientDTO.getLastName());
+            }
+
+            if (patchClientDTO.getEmail() != null) {
+                clienteActualizar.setEmail(patchClientDTO.getEmail());
+            }
+
+            if (patchClientDTO.getAddress() != null) {
+                clienteActualizar.setAddress(patchClientDTO.getAddress());
+            }
+
+            if (patchClientDTO.getPassword() != null) {
+                clienteActualizar.setPassword(patchClientDTO.getPassword());
+            }
+
+            this.clientRepository.save(clienteActualizar);
+        }
+        return new ResponseEntity<>("Cliente actualizado", HttpStatus.CREATED);
     }
 
     @Override

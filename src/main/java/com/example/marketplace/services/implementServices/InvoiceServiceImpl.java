@@ -91,6 +91,8 @@ public class InvoiceServiceImpl implements InvoiceServices {
             totalPrice+=purchaseOrders.get(x).getPrice();
         }
 
+
+
         Invoice invoice = new Invoice(totalPrice, LocalDate.now(),payments,shoppingCartNow,paymentType);
         invoiceRepository.save(invoice);
 
