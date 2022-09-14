@@ -99,8 +99,9 @@ public class InvoiceServiceImpl implements InvoiceServices {
         ShoppingCart newShoppingCart = new ShoppingCart(clientConected);
         shoppingCartRepository.save(newShoppingCart);
 
-        String message="Tu compra se realizó exitosamente" + "\n" + "N° compra: "+invoice.getId() + "\n" + "Monto total: "+invoice.getTotalPrice() + "\n" + "Tipo de pago: " + invoice.getPayment().getName() + ". En: "+invoice.getPayments()+" cuotas." + "\n" + "Compraste: "+shoppingCartNow.getPurchaseOrders().stream().map(purchaseOrder -> purchaseOrder.getProduct().getName()).collect(Collectors.toSet());
-        mailService.sendMail("cositosinc1@gmail.com", clientConected.getEmail(),"Compra realizada :)", message);
+        String message="MarketSito:"+"\n"+"Tu compra se realizó exitosamente" + "\n" + "N° compra: "+invoice.getId() + "\n" + "Monto total: "+invoice.getTotalPrice() + "\n" + "Tipo de pago: " + invoice.getPayment().getName() + ". En: "+invoice.getPayments()+" cuotas." + "\n" + "Compraste: "+shoppingCartNow.getPurchaseOrders().stream().map(purchaseOrder -> purchaseOrder.getProduct().getName()).collect(Collectors.toSet());
+
+        mailService.sendMail("cositosinc1@gmail.com", clientConected.getEmail(),"MarketSito: Compra realizada :)", message);
 
         return new ResponseEntity<>(HttpStatus.CREATED);
     }
