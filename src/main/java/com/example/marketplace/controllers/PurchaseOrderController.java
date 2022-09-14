@@ -29,7 +29,7 @@ public class PurchaseOrderController {
         return purchaseOrderServices.createPurchaseOrder(nameProduct, cant, authentication);
     }
 
-    @DeleteMapping("/deleteItemFromCart")
+    @DeleteMapping("/deleteItemFromCart/{id}")
     public ResponseEntity<Object> deleteItem(@PathVariable("id")Long id){
         return purchaseOrderServices.deleteItem(id);
 }
