@@ -55,4 +55,9 @@ public class ClientController {
         return this.clientServices.deleteClient(id);
     }
 
+    @DeleteMapping({"/clients/delete/current"})
+    public ResponseEntity<Object> deleteClientCurrent(Authentication authentication) {
+        return this.clientServices.deleteClientCurrent(authentication);
+    }
+
 }

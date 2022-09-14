@@ -151,8 +151,29 @@ public class ClientServiceImpl implements ClientServices {
 
 
             clientRepository.deleteById(clienteABorrar.getId());
-            return new ResponseEntity<>("Cliente eliminado", HttpStatus.OK);
         }
+        return new ResponseEntity<>("Cliente eliminado", HttpStatus.OK);
+    }
+
+    @Override
+    public ResponseEntity<Object> deleteClientCurrent(Authentication authentication) {
+        Client clienteABorrar = clientRepository.findByEmail(authentication.getName());
+        if (clienteABorrar == null) {
+            return new ResponseEntity<>("El cliente indicado no existe", HttpStatus.FORBIDDEN);
+        } else {
+            ShoppingCart shoppingCartAsociado = shoppingCartRepository.findById(clienteABorrar.getId()).orElse(null);
+            Set<Invoice> invoiceSet = shoppingCartAsociado.getInvoices();
+            invoiceRepository.deleteAll(invoiceSet);
+            Set<PurchaseOrder> purchaseOrderSet = shoppingCartAsociado.getPurchaseOrders();
+            purchaseOrderRepository.deleteAll(purchaseOrderSet);
+            Set<ShoppingCart> shoppingCartSet = clienteABorrar.getShoppingCarts();
+            shoppingCartRepository.deleteAll(shoppingCartSet);
+            //Para borrar un objeto, tenes que borrar los que tiene asociados, y los que tienen asociados esos tambien, sino van quedando vacíos (ej un carrito sin cliente no puede existir)
+
+
+            clientRepository.deleteById(clienteABorrar.getId());
+        }
+        return new ResponseEntity<>("Cliente eliminado", HttpStatus.OK);
     }
 
 }

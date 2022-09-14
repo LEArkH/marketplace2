@@ -28,6 +28,8 @@ public interface ClientServices {
     ResponseEntity<Object> patchClientCurrent(Authentication authentication, @RequestBody PatchClientDTO patchClientDTO);
 
     ResponseEntity<Object> deleteClient(@PathVariable("id") Long id);
+
+    ResponseEntity<Object> deleteClientCurrent(Authentication authentication);
 }
 
 
