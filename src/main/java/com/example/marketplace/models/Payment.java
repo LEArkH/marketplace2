@@ -26,6 +26,9 @@ public class Payment {
     public Payment() {
     }
 
+    public Payment(Long id, String name, List<Integer> payments) {
+    }
+
     public Payment(String name, List<Integer> payments) {
         this.name = name;
         this.payments = payments;
