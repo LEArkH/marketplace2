@@ -35,8 +35,6 @@ public class MarketplaceApplication {
 
 			Client client1 = new Client("Homero", "Simpson", "homero@gmail.com", "Av. Siempre Viva 123", passwordEncoder.encode("1234"));
 			clientRepository.save(client1);
-			Client client2 = new Client("Mark", "Spector", "monknight@gmail.com", "Av. Siempre Viva 123", passwordEncoder.encode("1234"));
-			clientRepository.save(client1);
 			Client admin = new Client("Admin", "Blabla", "admin@gmail.com", "Av. Falsa 1414", passwordEncoder.encode("admin"));
 			clientRepository.save(admin);
 
