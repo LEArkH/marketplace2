@@ -12,13 +12,13 @@ public class PaymentDTO {
     private String name;
     private List<Integer> payments;
 
-    private Set<InvoiceDTO> invoices;
+
 
     public PaymentDTO(Payment payment) {
         this.id = payment.getId();
         this.name = payment.getName();
         this.payments = payment.getPayments();
-        this.invoices = payment.getInvoices().stream().map(InvoiceDTO::new).collect(Collectors.toSet());
+
     }
 
     public Long getId() {
@@ -45,11 +45,4 @@ public class PaymentDTO {
         this.payments = payments;
     }
 
-    public Set<InvoiceDTO> getInvoices() {
-        return invoices;
-    }
-
-    public void setInvoices(Set<InvoiceDTO> invoices) {
-        this.invoices = invoices;
-    }
 }
