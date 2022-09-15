@@ -24,10 +24,5 @@ public class ShoppingCartController {
         return shoppingCartServices.getAllShoppingCarts();
     }
 
-    @PostMapping("/shoppingCarts")
-    public ResponseEntity<Object> createCart(
-            Authentication authentication) {
-        return shoppingCartServices.createCart(authentication);
-    }
 
 }

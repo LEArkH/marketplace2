@@ -34,14 +34,4 @@ public class ShoppingCartImpl implements ShoppingCartServices {
         return shoppingCartRepository.findAll().stream().map(ShoppingCartDTO::new).collect(toList());
     }
 
-    @Override
-    public ResponseEntity<Object> createCart(Authentication authentication) {
-
-        Client clientConected=clientRepository.findByEmail(authentication.getName());
-        ShoppingCart shoppingCartNow = new ShoppingCart(clientConected);
-        shoppingCartNow.setActive(true);
-        return new ResponseEntity<>(HttpStatus.CREATED);
-    }
-
-
 }

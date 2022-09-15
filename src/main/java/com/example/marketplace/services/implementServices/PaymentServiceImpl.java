@@ -77,7 +77,7 @@ public class PaymentServiceImpl implements PaymentService {
         paymentAct.get().setPayment(paymentPostDTO.getPayments());
         paymentRepository.save(paymentAct.get());
 
-        return new ResponseEntity<>("Metodo de pago actualizado", HttpStatus.CREATED);
+        return new ResponseEntity<>("Metodo de pago actualizado", HttpStatus.OK);
     }
 
     @Override
@@ -113,7 +113,7 @@ public class PaymentServiceImpl implements PaymentService {
         }
 
         paymentRepository.save(paymentAct);
-        return new ResponseEntity<>("Metodo de pago  actualizado", HttpStatus.CREATED);
+        return new ResponseEntity<>("Metodo de pago  actualizado", HttpStatus.OK);
     }
 
     @Override
@@ -128,6 +128,6 @@ public class PaymentServiceImpl implements PaymentService {
         invoiceRepository.deleteAll(invoicesList);
         paymentRepository.deleteById(paymentDelete.getId());
 
-        return new ResponseEntity<>("Metodo de pago borrado", HttpStatus.CREATED);
+        return new ResponseEntity<>("Metodo de pago borrado", HttpStatus.OK);
     }
 }

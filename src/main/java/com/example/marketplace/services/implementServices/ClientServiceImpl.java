@@ -100,7 +100,7 @@ public class ClientServiceImpl implements ClientServices {
 
             this.clientRepository.save(clienteActualizar);
         }
-        return new ResponseEntity<>("Cliente actualizado", HttpStatus.CREATED);
+        return new ResponseEntity<>("Cliente actualizado", HttpStatus.OK);
     }
 
     @Override
@@ -131,7 +131,7 @@ public class ClientServiceImpl implements ClientServices {
 
             this.clientRepository.save(clienteActualizar);
         }
-        return new ResponseEntity<>("Cliente actualizado", HttpStatus.CREATED);
+        return new ResponseEntity<>("Cliente actualizado", HttpStatus.OK);
     }
 
     @Override

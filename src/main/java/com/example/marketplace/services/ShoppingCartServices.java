@@ -11,6 +11,4 @@ public interface ShoppingCartServices {
 
     List<ShoppingCartDTO> getAllShoppingCarts();
 
-    ResponseEntity<Object> createCart(Authentication authentication);
-
 }

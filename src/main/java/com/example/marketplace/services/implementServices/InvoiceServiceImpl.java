@@ -92,7 +92,6 @@ public class InvoiceServiceImpl implements InvoiceServices {
         }
 
 
-
         Invoice invoice = new Invoice(totalPrice, LocalDate.now(),payments,shoppingCartNow,paymentType);
         invoiceRepository.save(invoice);
 

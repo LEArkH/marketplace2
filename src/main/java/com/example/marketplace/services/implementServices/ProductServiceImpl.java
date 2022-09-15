@@ -44,7 +44,7 @@ public class ProductServiceImpl implements ProductServices {
         Product product = new Product(name, price, stock);
         productRepository.save(product);
 
-        return new ResponseEntity<>(HttpStatus.CREATED); //si pasó los anteriores requisitos, lo crea, lo guarda y envia un mensaje 201 creado
+        return new ResponseEntity<>(HttpStatus.OK); //si pasó los anteriores requisitos, lo crea, lo guarda y envia un mensaje 201 creado
     }
 
 
@@ -61,7 +61,7 @@ public class ProductServiceImpl implements ProductServices {
         productoActualizado.get().setStock(newStock);
         productRepository.save(productoActualizado.get());
 
-        return new ResponseEntity<>("Producto actualizado", HttpStatus.CREATED);
+        return new ResponseEntity<>("Producto actualizado", HttpStatus.OK);
 
 
     }
@@ -79,7 +79,7 @@ public class ProductServiceImpl implements ProductServices {
         purchaseOrderRepository.deleteAll(purchaseOrdersList);
         productRepository.deleteById(productoABorrar.getId());
 
-        return new ResponseEntity<>("Producto borrado", HttpStatus.CREATED);
+        return new ResponseEntity<>("Producto borrado", HttpStatus.OK);
 
     }
 
@@ -104,6 +104,6 @@ public class ProductServiceImpl implements ProductServices {
 
         }
         productRepository.save(productoaActualizar);
-        return new ResponseEntity<>("Producto actualizado", HttpStatus.CREATED);
+        return new ResponseEntity<>("Producto actualizado", HttpStatus.OK);
     }
 }

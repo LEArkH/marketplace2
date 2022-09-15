@@ -107,7 +107,7 @@ public class PurchaseOrderImpl implements PurchaseOrderServices {
         productRepository.save(producto);
         purchaseOrderRepository.save(itemActualizar);
 
-        return new ResponseEntity<>("Cantidad del item actualizado", HttpStatus.CREATED);
+        return new ResponseEntity<>("Cantidad del item actualizado", HttpStatus.OK);
     }
 }
 
