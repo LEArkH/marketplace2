@@ -38,11 +38,6 @@ public class WebAuthorization extends WebSecurityConfigurerAdapter {
                 .antMatchers("/**").hasAuthority("ADMIN")
                 .antMatchers("/h2-console/**").hasAuthority("ADMIN");
 
-
-
-        //si se recibe una petición con la URL /data, se verifica primero contra el antMatcher(“/admin/**”) y si este no se cumple entonces pasa al
-        // siguiente, por lo que se valida contra antMatcher(“/**”) y como se cumple entonces Spring Security verificará que exista una sesión iniciada y que ese usuario tenga el rol USER para poder acceder a /data.
-
         http.formLogin().usernameParameter("email")  //establece lo que necesita el formulario para poder loguearse: mails, password y pagina
                 .passwordParameter("password")
                 .loginPage("/api/login"); // endpoint
