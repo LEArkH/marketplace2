@@ -7,7 +7,6 @@ public class PatchPurchaseItemDTO {
     private int quantity;
     private LocalDate date;
 
-
     public PatchPurchaseItemDTO(Long id, int quantity, Double price, LocalDate date) {
         this.id = id;
         this.quantity = quantity;
