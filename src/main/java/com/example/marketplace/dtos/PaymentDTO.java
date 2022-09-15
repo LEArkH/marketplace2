@@ -44,5 +44,4 @@ public class PaymentDTO {
     public void setPayments(List<Integer> payments) {
         this.payments = payments;
     }
-
 }
